@@ -29,7 +29,7 @@ During his 15 minutes with each executive, Ivy Lee explained his simple daily ro
 ### Developer Setup:
 - Fork this repository, and cd into it.
 ```bash
-git clone https://github.com/osamamhd/ivyTasks
+git clone https://github.com/<username>/ivyTasks.git
 cd ivyTasks/
 ```
 - Install all the dependencies, Run:
