@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}About{% endblock title %}
+
+{% block content %}
+    <main role="main" class="container px-3 py-3 pt-md-5 pb-md-4 mx-auto">
+        <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto">
+            <h3 class="hello">Ivy Lee Technique</h3>
+            <p>The Ivy Lee method is a 100-year-old strategy for helping people become more productive at work. 
+                Under the Ivy Lee method, at the end of each night you write down your six most 
+                important tasks to accomplish the following day in order of importance. 
+                The next day, you begin working on the tasks one at a time.</p>
+            <h3 class="hello">The Ivy Lee Method</h3>
+            <p>During his 15 minutes with each executive, Ivy Lee explained his simple
+                 daily routine for achieving peak productivity:</p>
+            <ul>
+                <li>At the end of each work day, 
+                    write down the six most important things you need to accomplish tomorrow. 
+                    Do not write down more than six tasks.
+                </li>
+                <li>Prioritize those six items in order of their true importance.</li>
+                <li>When you arrive tomorrow, concentrate only on the first task. 
+                    Work until the first task is finished before moving on to the second task.
+                </li>
+                <li>Approach the rest of your list in the same fashion. At the end of the day, 
+                    move any unfinished items to a new list of six tasks for the following day.
+                </li>
+                <li>Repeat this process every working day.</li>
+            </ul>
+        </div>
+    </main>
+
+    {% if user.is_authenticated %}
+        <div class="pricing-header mx-auto text-center">
+            <button type="button" class="btn btn-outline-primary btn-lg">Tasks List</button>
+        </div>    
+    {% else %}
+        <div class="pricing-header mx-auto text-center">
+            <a href="{% url 'signup' %}">
+                <button type="button" class="btn btn-outline-primary btn-lg">Get Started</button>
+            </a>
+        </div>
+    {% endif %}
+{% endblock content %}
