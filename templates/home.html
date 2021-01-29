@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 {% load static %}
 
 {% block title %}Home{% endblock title %}
@@ -6,10 +7,10 @@
 {% block content %}
 
     {% if user.is_authenticated %}
-        <h3 class="hello">Hi {{ user.username | upper }}!</h3>
+        <h4 class="hello">Hi {{ user.username | upper }}!</h4>
         
     {% else %}
-        <h3 class="hello">Welcome To:</h3>
+        <h4 class="hello">Welcome To:</h4>
     {% endif %}
 
 
@@ -20,16 +21,20 @@
 
     {% if user.is_authenticated %}
         <div class="pricing-header mx-auto text-center">
-            <button type="button" class="btn btn-primary btn-lg">Tasks</button>
+            <button type="button" class="btn btn-outline-primary btn-lg">Tasks List</button>
+            <a href="{% url 'about' %}">
+                <button type="button" class="btn btn-outline-primary btn-lg">Read More</button>
+            </a>
         </div>    
     {% else %}
         <div class="pricing-header mx-auto text-center">
             <a href="{% url 'signup' %}">
                 <button type="button" class="btn btn-outline-primary btn-lg">Get Started</button>
             </a>
+            <a href="{% url 'about' %}">
+                <button type="button" class="btn btn-outline-primary btn-lg">Read More</button>
+            </a>
         </div>
     {% endif %}
 
-
-    
 {% endblock content %}
