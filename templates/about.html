@@ -5,7 +5,7 @@
 {% block title %}About{% endblock title %}
 
 {% block content %}
-    <main role="main" class="container px-3 py-3 pt-md-5 pb-md-4 mx-auto">
+    <main role="main" class="container ">
         <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto">
             <h3 class="hello">Ivy Lee Technique</h3>
             <p>The Ivy Lee method is a 100-year-old strategy for helping people become more productive at work. 
@@ -29,12 +29,20 @@
                 </li>
                 <li>Repeat this process every working day.</li>
             </ul>
+
+            <h5 class="hello">For more details check these links:</h5>
+                <ul>
+                    <li><a href="https://en.wikipedia.org/wiki/Ivy_Lee">Wikipedia</a></li>
+                    <li><a href="https://jamesclear.com/ivy-lee">jamesclear.com</a></li>
+                </ul>
         </div>
     </main>
 
     {% if user.is_authenticated %}
         <div class="pricing-header mx-auto text-center">
-            <button type="button" class="btn btn-outline-primary btn-lg">Tasks List</button>
+            <a href="{% url 'task_list' %}">
+                <button type="button" class="btn btn-outline-primary btn-lg">Tasks List</button>
+            </a>
         </div>    
     {% else %}
         <div class="pricing-header mx-auto text-center">
