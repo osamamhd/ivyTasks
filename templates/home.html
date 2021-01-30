@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 {% load static %}
 
 {% block title %}Home{% endblock title %}
@@ -6,19 +7,34 @@
 {% block content %}
 
     {% if user.is_authenticated %}
-        <h3 class="hello">Hi {{ user.username | upper }}!</h3>
+        <h4 class="hello">Hi {{ user.username | upper }}!</h4>
         
     {% else %}
-        <p>You are not logged in</p>
-        <a href="{% url 'login' %}">Log In</a> |
-        <a href="{% url 'signup' %}">Sign Up</a>
+        <h4 class="hello">Welcome To:</h4>
     {% endif %}
 
 
-    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <div class="pricing-header  mx-auto text-center">
         <img src="{% static 'images/logo.png' %}" class="img-fluid" alt="DjangoX logo"/>
-        <p class="lead">A Django App to track you Tasks.</p>
+        <p class="lead">A Django App using Ivy Lee Method for productivity.</p>
     </div>
 
-    
+    {% if user.is_authenticated %}
+        <div class="pricing-header mx-auto text-center">
+            <button type="button" class="btn btn-outline-primary btn-lg">Tasks List</button>
+            <a href="{% url 'about' %}">
+                <button type="button" class="btn btn-outline-primary btn-lg">Read More</button>
+            </a>
+        </div>    
+    {% else %} 
+        <div class="pricing-header mx-auto text-center">
+            <a href="{% url 'signup' %}">
+                <button type="button" class="btn btn-outline-primary btn-lg">Get Started</button>
+            </a>
+            <a href="{% url 'about' %}">
+                <button type="button" class="btn btn-outline-primary btn-lg">Read More</button>
+            </a>
+        </div>
+    {% endif %}
+
 {% endblock content %}
