@@ -4,3 +4,12 @@
 
 {% block title %}Tasks{% endblock title %}
 
+{% block content %}
+{% for task in object_list %}
+    <div class="container">
+    <h2><a href="">{{ task.title }}</a></h2>
+    <p>{{ task.content }}</p>
+    <p>{{ task.due_date }}</p>
+    </div>
+{% endfor %}
+{% endblock content %}
