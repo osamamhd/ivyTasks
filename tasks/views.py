@@ -4,17 +4,26 @@ from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from django.urls import reverse_lazy, reverse
 from .models import Task
 
+
 class TaskListView(LoginRequiredMixin, ListView):
     model = Task
     template_name = 'task_list.html'
     login_url = 'login'
 
+    def get_queryset(self):
+        obj = Task.objects.all()
+        return obj.filter(created_by=self.request.user)
+        
 
 class TaskCreateView(LoginRequiredMixin, CreateView):
     model = Task
     template_name = 'task_create.html'
-    fields = ('title', 'content')
+    fields = ('title', 'content',)
     login_url = 'login'
+
+    def form_valid(self, form): # new
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
 
     def get_success_url(self):
         return reverse('task_list')
