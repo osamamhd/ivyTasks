@@ -25,6 +25,7 @@ During his 15 minutes with each executive, Ivy Lee explained his simple daily ro
 - Django
 - Python
 - pipenv
+- Bootstrap
 
 ### Developer Setup:
 - Fork this repository, and cd into it.
