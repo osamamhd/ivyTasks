@@ -17,7 +17,7 @@
             {{ task.content }}
             </div>
             <div class="card-footer text-center text-muted">
-            <a href="{% url 'task_update' task.pk %}">Edit</a> | <a href="{% url 'task_delete' task.pk %}">Delete</a>
+            <a href="{% url 'task_update' task.slug %}">Edit</a> | <a href="{% url 'task_delete' task.slug %}">Delete</a>
             </div>
         </div>
     </div>
